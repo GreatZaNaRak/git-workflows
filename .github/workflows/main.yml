@@ -3,7 +3,9 @@ name: Temp Continuous Intrgation
 on:
   push:
     branches:
-      - master
+      - main
+    tags:
+      - v*.*.*
 
 jobs:
   test:
@@ -23,5 +25,9 @@ jobs:
       - name: "Test"
         run: npm run test
 
-      - name: "do something after test"
-        run: echo Test Finish
+      - name: "extract tag"
+        id: tag-version
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
+      - name: "echo tag"
+        run: echo my tag is -> tag${{ steps.tag-version.tag }}
