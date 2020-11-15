@@ -22,3 +22,6 @@ jobs:
       
       - name: "Test"
         run: npm run test
+
+      - name: "do something after test"
+        run: echo Test Finish
