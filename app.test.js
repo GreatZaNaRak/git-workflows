@@ -10,6 +10,6 @@ describe('common logic test', () => {
     })
 
     test('should do something wrong', () => {
-        expect(add(1, 2)).toBe(5)
+        expect(add(1, 2)).toBe(3)
     });
 })
